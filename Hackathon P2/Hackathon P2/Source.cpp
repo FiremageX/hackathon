@@ -136,10 +136,10 @@ int main() {
     int total = solve();
     vector<pair<int, int>> path = reconstructPath();
 
-    cout << total << endl;
+    fout << total << endl;
     
     for (int i = path.size() - 1; i >= 0; i--) {
-        cout << path[i].first << ", " << path[i].second << endl;
+        fout << path[i].first << ", " << path[i].second << endl;
     }
     return 0;
 }
