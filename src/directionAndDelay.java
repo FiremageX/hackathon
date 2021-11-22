@@ -5,7 +5,7 @@ public class directionAndDelay {
     public static void main(String[] args) throws IOException, InterruptedException{
         Scanner in = new Scanner(new File("path.out"));
         //PrintWriter out = new PrintWriter(new File("directions.out"));
-        int length = in.nextInt() + 1;
+        int length = in.nextInt();
         int speed = in.nextInt();
         int x[] = new int[length];
         int y[] = new int[length];
