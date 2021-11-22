@@ -10,11 +10,12 @@ public class directionAndDelay {
         int x[] = new int[length];
         int y[] = new int[length];
         int dirIndex[] = new int[length - 1];
-        boolean lastWentForward = false;
+        boolean lastWentForward = true;
         for(int i = 0; i<length; i++) {
             x[i] = in.nextInt();
             y[i] = in.nextInt();
         }   
+        System.out.println("Start going forward");
         for (int i = 1; i < x.length; i++){
             
             if(x[i] == x[i-1] + 1) {
@@ -26,32 +27,29 @@ public class directionAndDelay {
                 dirIndex[i-1] = 3;
             }
             else if (y[i] == y[i-1] + 1) {
-                //forwards = 0
+                //up = 0
                 dirIndex[i-1] = 0;
             }
             else if (y[i] == y[i-1] - 1) {
-                //backwards = 2
+                //down = 2
                 dirIndex[i-1] = 2;
             }
-            
+
             //determine when the user has to turn
             if(i >=2) {
-                if(!lastWentForward){
+            	if(i == x.length - 1) {
+                    System.out.println("You have reached your destination");
+            	}
+            	else if(!lastWentForward && dirIndex[i-1] == dirIndex[i-2]){
                     lastWentForward = true;
-                    if( i == x.length-1) {
-                        System.out.println("You have reached your destination");
-                    }
-                    else{
                     	System.out.println("Continue Forward");
-                        
-                    }
                 }
                 else if(dirIndex[i-1] == (dirIndex[i-2]+1)%4) {
-                	System.out.println("Turn left");
+                	System.out.println("Turn right");
                     lastWentForward = false;
                 }
                 else if (dirIndex[i-1] == (dirIndex[i-2]+3)%4) {
-                	System.out.println("Turn right");
+                	System.out.println("Turn left");
                     lastWentForward = false;
                 }
             }
